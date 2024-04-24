@@ -6,7 +6,15 @@
     box-sizing: border-box;
 }
 
+.main-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
 
+.meal-image{
+    width: 50%;
+}
 
 
 //kim section
@@ -120,8 +128,29 @@
         width: 70%;
         background-color: white;
         z-index: 1;
+        border-radius: 0.5rem;
     }
-}
+
+    &__button {
+        background-color: white;
+        opacity: 85%;
+        border: none;
+        color: rgb(44, 44, 44);
+        padding: 8px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+    
+        .btn:hover {
+            background-color: lightgray;
+      }
+    }
+    }
+
 
 
 

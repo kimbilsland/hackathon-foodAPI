@@ -47,36 +47,43 @@ searchButton.addEventListener('click', () => {
 })
 
 async function searchMeals(value) {
-   const search_div = document.querySelector('.search-display')
-try{
+    const search_div = document.querySelector('.search-display')
+    try {
+        console.log(value);
+        const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+        console.log(response.data)
+    
+        search_div.innerHTML = ''
+    
+        let meals = response.data.meals
+    
+        if (meals) {
+            meals.forEach((meal, index) => {
+                console.log(meal);
+                const mainDiv = createElementWithClass('div', 'main-div')
+    
+                const mealImage = createElementWithClass('img', 'meal-image')
+                mealImage.setAttribute('src', meal.strMealThumb)
+                mainDiv.appendChild(mealImage)
 
-    console.log(value)
-    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+                const mealName = createElementWithClass('h2', 'meal-name')
+                mealName.innerHTML = meal.strMeal;
+                mainDiv.appendChild(mealName);
 
-    console.log(response.data)
+                // const mealIn
+    
 
-    search.innerHTML = ''
-
-    let meals = response.data
-
-    if(meals) {
-        meals.forEach((meal, index) => {
-           const mainDiv = createElementWithClass('div', 'main-div')
-
-           const mealName = createElementWithClass('h2', 'meal-name')
-           mainDiv.appendChild(mealName)
-
-        })
-    }else{
-        search_div.innerHTML = '<p>No meals found.</p>'
+                search_div.appendChild(mainDiv)
+            });
+        } else {
+            search_div.innerHTML = '<p>No meals found.</p>'
+        }
+    } catch(error) {
+        console.error('Error fetching meals:', error)
+        search_div.innerHTML = '<p>An error occurred while fetching meals.</p>';
     }
-    
-} catch(error){
-    console.error('Error fetching meals:', error)
-    search_div.innerHTML = '<p>An error occured while fetching meals </p>'
-}
-    
-}
+ }
+ 
 
 function createElementWithClass(elementName, className) {
     const element = document.createElement(elementName)

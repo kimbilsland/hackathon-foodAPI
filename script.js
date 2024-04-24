@@ -3,7 +3,11 @@ let hero_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 let list_url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
 
+const getAnotherMeal = document.querySelector('.hero__button')
 
+getAnotherMeal.addEventListener('click', () => {
+    location.reload()
+})
 
 // const hero_rotd = document.querySelector('.hero__rotd')
 // const hero_rotdI = document.querySelector('.hero_rotdI')
@@ -26,25 +30,71 @@ let list_url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
 // getMeals()
 
 
-//Function for the search item 
+// Function for the search item 
 
-// const search = document.querySelector('.nav__input')
+const search = document.querySelector('.nav__input')
+const searchButton = document.querySelector('.nav__button')
 
-// search.addEventListener('input', () => {
-//    const value = search.value
-// //    console.log(value)
+search.addEventListener('input', () => {
+   const value = search.value
+//    console.log(value)
+   searchMeals(value)
 
-//    searchMeals(value)
+})
+searchButton.addEventListener('click', () => {
+    const value = search.value
+    searchMeals(value)
+})
 
-// })
-
-// async function searchMeals(value) {
-//     console.log(value)
-//     const response = await axios.get(`www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
-
-//     console.log(response.data)
+async function searchMeals(value) {
+    const search_div = document.querySelector('.search-display')
+    try {
+        console.log(value);
+        const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+        console.log(response.data)
     
-// }
+        search_div.innerHTML = ''
+    
+        let meals = response.data.meals
+    
+        if (meals) {
+            meals.forEach((meal, index) => {
+                console.log(meal);
+                const mainDiv = createElementWithClass('div', 'main-div')
+    
+                const mealImage = createElementWithClass('img', 'meal-image')
+                mealImage.setAttribute('src', meal.strMealThumb)
+                mainDiv.appendChild(mealImage)
+
+                const mealName = createElementWithClass('h2', 'meal-name')
+                mealName.innerHTML = meal.strMeal;
+                mainDiv.appendChild(mealName);
+
+                // const mealIn
+    
+
+                search_div.appendChild(mainDiv)
+            });
+        } else {
+            search_div.innerHTML = '<p>No meals found.</p>'
+        }
+    } catch(error) {
+        console.error('Error fetching meals:', error)
+        search_div.innerHTML = '<p>An error occurred while fetching meals.</p>';
+    }
+ }
+ 
+
+function createElementWithClass(elementName, className) {
+    const element = document.createElement(elementName)
+    element.classList.add(className)
+
+    return element
+}
+
+// getting the div to display 
+
+
 
 
 

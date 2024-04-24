@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+.main-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.meal-image {
+  width: 50%;
+}
+
 .nav {
   background-color: #1f3c32;
   color: white;

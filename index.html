@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
 </head>
 <body>
     <header class="header">
@@ -19,25 +20,27 @@
             </a>
             <div class="nav__inputBox">
                <input type="text" class="nav__input">
-               <button class="nav__button"><img class="nav__searchicon" src="/assets/icons/search.svg" alt="search-icon">Search</button>
+               <button class="nav__button"><img class="nav__searchicon" src="/assets/icons/search.svg" alt="search-icon" type="submit">Search</button>
             </div>
         </nav>
     </header>
     <main class="main">
         <section class="hero">
             <div class="hero__rotd">
-                <img src="" alt="" class="hero__img">
+                <img src="" alt="" class="hero__rotdI">
                 <div class="hero__twoButtons">
                     <button class="hero__button">Get Recipe</button>
-                    <button class="hero__next">Next</button>
+                    <i class="fa-solid fa-chevron-right" style="color: #122b15;"></i>
                 </div>  
             </div>
         </section>
-        <section class="recipes">
-            <article class="recipes__items">
-                <h1 class="recipes__header"></h1>
-            </article>
+        <section class="ingrident">
+           <div>
+
+           </div>
         </section>
     </main>
+    <script type="module" src="/script.js"></script>
+    
 </body>
 </html>

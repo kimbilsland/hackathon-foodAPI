@@ -98,4 +98,23 @@
   width: 70%;
   background-color: white;
   z-index: 1;
+  border-radius: 0.5rem;
+}
+.hero__button {
+  background-color: white;
+  opacity: 85%;
+  border: none;
+  color: rgb(44, 44, 44);
+  padding: 8px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.hero__button .btn:hover {
+  background-color: lightgray;
 }/*# sourceMappingURL=style.css.map */

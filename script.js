@@ -3,7 +3,11 @@ let hero_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 let list_url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
 
+const getAnotherMeal = document.querySelector('.hero__button')
 
+getAnotherMeal.addEventListener('click', () => {
+    location.reload()
+})
 
 // const hero_rotd = document.querySelector('.hero__rotd')
 // const hero_rotdI = document.querySelector('.hero_rotdI')

@@ -1,8 +1,12 @@
 * {
   font-family: "Raleway", sans-serif;
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
 }
 
 .nav {
   background-color: #1f3c32;
   color: white;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

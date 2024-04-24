@@ -8,16 +8,81 @@
 
 
 
+
 //kim section
 
 .nav {
     background-color: #1f3c32;
     color: white;
-    width:100%
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+&__logoblock {
+    display: flex;
+    column-gap: 10px;
+    text-decoration: none;
+}
+
+&__logo {
+    font-weight: bolder; 
+    font-size: 30px;
+    color: white;
+}
+
+&__icon {
+    height: 30px;
+}
+
+&__inputBox {
+    display: flex;
+    column-gap: 8px;
+
+}
+
+&__input {
+    background-color: white;
+    opacity: 85%;
+    border: none;
+    color: rgb(44, 44, 44);
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+&__button {
+    background-color: white;
+    opacity: 85%;
+    border: none;
+    color: rgb(44, 44, 44);
+    padding: 8px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    .btn:hover {
+        background-color: lightgray;
+  }
+}
+
+
+&__searchicon {
+    height: 16px;
+    
+
+}
 }
 
 
 ///
+
 
 
 

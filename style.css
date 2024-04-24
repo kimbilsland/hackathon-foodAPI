@@ -9,6 +9,60 @@
   background-color: #1f3c32;
   color: white;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.nav__logoblock {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  text-decoration: none;
+}
+.nav__logo {
+  font-weight: bolder;
+  font-size: 30px;
+  color: white;
+}
+.nav__icon {
+  height: 30px;
+}
+.nav__inputBox {
+  display: flex;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+.nav__input {
+  background-color: white;
+  opacity: 85%;
+  border: none;
+  color: rgb(44, 44, 44);
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.nav__button {
+  background-color: white;
+  opacity: 85%;
+  border: none;
+  color: rgb(44, 44, 44);
+  padding: 8px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.nav__button .btn:hover {
+  background-color: lightgray;
+}
+.nav__searchicon {
+  height: 16px;
 }
 
 .hero {

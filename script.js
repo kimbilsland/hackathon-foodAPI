@@ -26,23 +26,62 @@ async function getMeals(){
 getMeals()
 
 
-//Function for the search item 
+// Function for the search item 
 
-// const search = document.querySelector('.nav__input')
+const search = document.querySelector('.nav__input')
+const searchButton = document.querySelector('.nav__button')
 
-// search.addEventListener('input', () => {
-//    const value = search.value
-// //    console.log(value)
+search.addEventListener('input', () => {
+   const value = search.value
+//    console.log(value)
+   searchMeals(value)
 
-//    searchMeals(value)
+})
+searchButton.addEventListener('click', () => {
+    const value = search.value
+    searchMeals(value)
+})
 
-// })
+async function searchMeals(value) {
+   const search_div = document.querySelector('.search-display')
+try{
 
-// async function searchMeals(value) {
-//     console.log(value)
-//     const response = await axios.get(`www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+    console.log(value)
+    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
 
-//     console.log(response.data)
+    console.log(response.data)
+
+    search.innerHTML = ''
+
+    let meals = response.data
+
+    if(meals) {
+        meals.forEach((meal, index) => {
+           const mainDiv = createElementWithClass('div', 'main-div')
+
+           const mealName = createElementWithClass('h2', 'meal-name')
+           mainDiv.appendChild(mealName)
+
+        })
+    }else{
+        search_div.innerHTML = '<p>No meals found.</p>'
+    }
     
-// }
+} catch(error){
+    console.error('Error fetching meals:', error)
+    search_div.innerHTML = '<p>An error occured while fetching meals </p>'
+}
+    
+}
+
+function createElementWithClass(elementName, className) {
+    const element = document.createElement(elementName)
+    element.classList.add(className)
+
+    return element
+}
+
+// getting the div to display 
+
+
 
